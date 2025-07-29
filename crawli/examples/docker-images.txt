@@ -1,0 +1,17 @@
+# Example Configuration for Docker Images
+# Format: package_name = registry_url
+
+# Popular base images
+alpine = https://hub.docker.com/r/library/alpine
+debian = https://hub.docker.com/r/library/debian
+ubuntu = https://hub.docker.com/r/library/ubuntu
+fedora = https://hub.docker.com/r/library/fedora
+centos = https://hub.docker.com/r/library/centos
+
+# Development tools
+node = https://hub.docker.com/r/library/node
+python = https://hub.docker.com/r/library/python
+golang = https://hub.docker.com/r/library/golang
+nginx = https://hub.docker.com/r/library/nginx
+redis = https://hub.docker.com/r/library/redis
+postgres = https://hub.docker.com/r/library/postgres

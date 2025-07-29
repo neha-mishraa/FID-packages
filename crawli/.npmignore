@@ -1,0 +1,77 @@
+# Development and testing files
+src/
+tests/
+docs/
+examples/
+scripts/
+.github/
+
+# Build and development tools
+tsconfig.json
+eslint.config.js
+.eslintrc.json
+.prettierrc.json
+nodemon.json
+jest.config.*
+
+# Development dependencies and cache
+node_modules/
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
+.cache/
+.parcel-cache/
+
+# Environment and configuration files
+.env*
+local-config.txt
+private-config.txt
+config.txt
+
+# Docker and deployment files (keep only production ones)
+Dockerfile.dev
+docker-compose.dev.yml
+.dockerignore
+
+# Git files
+.git/
+.gitignore
+
+# Documentation and project files that shouldn't be in the package
+CONTRIBUTING.md
+SECURITY.md
+PROJECT_SUMMARY.md
+
+# Build artifacts
+*.tsbuildinfo
+.eslintcache
+
+# Package files
+*.tgz
+package-lock.json
+yarn.lock
+
+# Puppeteer cache
+.puppeteer/

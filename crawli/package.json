@@ -1,0 +1,106 @@
+{
+  "name": "crawli",
+  "version": "1.0.0",
+  "description": "AI-powered web scraper for finding latest package versions across different repositories",
+  "main": "dist/index.js",
+  "bin": {
+    "crawli": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "prod": "touch config.txt && cp configs/artifactory-monitoring.txt config.txt && echo 'Production configuration set.' && npm run start --config=config.txt && rm config.txt",
+    "prod:setup": "npm install && npm run build && echo 'Production environment setup complete.'",
+    "watch": "nodemon --exec ts-node src/index.ts",
+    "clean": "rm -rf dist",
+    "test": "jest",
+    "test:e2e": "jest --testPathPattern=e2e",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "prettier --write src/**/*.ts",
+    "prebuild": "npm run clean && npm run lint",
+    "package": "npm run prebuild && npm run build && npm test"
+  },
+  "keywords": [
+    "web-scraper",
+    "crawler",
+    "package-version",
+    "version-tracker",
+    "docker-hub",
+    "github-releases",
+    "hashicorp",
+    "ai",
+    "typescript",
+    "nodejs",
+    "automation",
+    "devops"
+  ],
+  "author": {
+    "name": "Shashank Taliwal",
+    "email": "shashankt@jfrog.com",
+    "url": "https://internal-repo.yourorg.com/crawli"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://internal-repo.yourorg.com/crawli.git"
+  },
+  "bugs": {
+    "url": "https://internal-issues.yourorg.com/crawli"
+  },
+  "homepage": "https://internal-docs.yourorg.com/crawli",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "files": [
+    "dist/",
+    "configs/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "type": "commonjs",
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^24.0.10",
+    "@typescript-eslint/eslint-plugin": "^8.35.1",
+    "@typescript-eslint/parser": "^8.35.1",
+    "eslint": "^9.30.1",
+    "eslint-config-prettier": "^10.1.5",
+    "jest": "^29.7.0",
+    "nock": "^13.5.6",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@types/cheerio": "^0.22.35",
+    "axios": "^1.10.0",
+    "cheerio": "^1.1.0",
+    "puppeteer": "^24.11.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/src",
+      "<rootDir>/tests"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.ts",
+      "**/?(*.)+(spec|test).ts"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!src/**/*.d.ts"
+    ],
+    "testTimeout": 30000
+  }
+}

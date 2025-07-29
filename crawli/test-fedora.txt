@@ -1,0 +1,2 @@
+# Test configuration for Fedora RPM filtering
+Fedora = https://hub.docker.com/_/fedora/tags

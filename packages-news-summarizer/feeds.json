@@ -1,0 +1,37 @@
+{
+    "teams": {
+        "2pack": [
+            "https://helm.sh/blog/index.xml",
+            "https://www.hashicorp.com/blog/products/terraform/feed.xml",
+            "https://www.docker.com/blog/feed"
+        ],
+        "sha2li": [
+            "https://www.sonatype.com/blog/rss.xml",
+            "https://github.com/rust-lang/crates.io/discussions/categories/announcements.atom",
+            "https://github.blog/changelog/label/npm/feed/",
+            "https://blog.rust-lang.org/feed.xml"
+        ],
+        "pacnroll": [
+            "https://blog.centos.org/feed/",
+            "https://www.debian.org/News/news",
+            "https://bits.debian.org/feeds/atom.xml",
+            "https://blog.cocoapods.org/feed.xml",
+            "https://www.alpinelinux.org/atom.xml",
+            "https://github.com/rpm-software-management/dnf5/discussions/categories/announcements.atom",
+            "https://github.com/rpm-software-management/rpm/discussions/categories/announcements.atom",
+            "https://www.swift.org/atom.xml"
+        ],
+        "al-pacino": [
+            "https://devblogs.microsoft.com/nuget/feed/",
+            "https://devblogs.microsoft.com/dotnet/feed/",
+            "https://blog.packagist.com/rss/"
+        ],
+        "packman": [
+            "https://blog.pypi.org/feed_rss_created.xml",
+            "https://blog.rubygems.org/atom.xml",
+            "https://conda.discourse.group/c/news/6.rss",
+            "https://huggingface.co/blog/feed.xml",
+            "https://developer.nvidia.com/blog/tag/nim/feed/"
+        ]
+    }
+}

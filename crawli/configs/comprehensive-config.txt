@@ -1,0 +1,19 @@
+# Comprehensive Package Configuration
+# Format: package_name = url
+
+# Docker Hub Images (Official)
+alpine = https://hub.docker.com/_/alpine/tags
+fedora = https://hub.docker.com/_/fedora/tags
+debian = https://hub.docker.com/_/debian
+ubuntu = https://hub.docker.com/_/ubuntu
+elixir = https://hub.docker.com/_/elixir/tags
+swift = https://hub.docker.com/_/swift
+
+# GitHub Releases
+cocoapods = https://github.com/CocoaPods/CocoaPods/releases
+
+# HashiCorp Releases
+vagrant = https://releases.hashicorp.com/vagrant/
+
+# OPKG/Yocto
+opkg = https://downloads.yoctoproject.org/releases/opkg/

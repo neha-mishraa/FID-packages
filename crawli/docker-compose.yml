@@ -1,0 +1,59 @@
+# Development environment with volume mounts for live editing
+version: '3.8'
+
+services:
+  crawli-dev:
+    build: 
+      context: .
+      target: builder
+    container_name: crawli-development
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - CRAWLI_CONCURRENCY=3
+      - CRAWLI_DELAY=500
+    command: npm run dev
+    working_dir: /app
+    restart: unless-stopped
+    profiles:
+      - development
+
+  crawli-prod:
+    build:
+      context: .
+      target: production
+    container_name: crawli-production
+    volumes:
+      - ./configs:/app/configs:ro
+      - ./output:/app/output
+    environment:
+      - NODE_ENV=production
+      - CRAWLI_CONCURRENCY=5
+      - CRAWLI_DELAY=1000
+    command: >
+      node dist/index.js 
+      --config configs/production-example.txt 
+      --output output/results.json 
+      --format json 
+      --verbose
+    restart: unless-stopped
+    profiles:
+      - production
+
+  # Optional: Redis for caching in production
+  redis:
+    image: redis:7-alpine
+    container_name: crawli-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    profiles:
+      - production
+      - cache
+
+volumes:
+  redis_data:

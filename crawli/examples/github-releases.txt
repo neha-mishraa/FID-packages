@@ -1,0 +1,17 @@
+# Example Configuration for GitHub Releases
+# Format: package_name = github_repo_url
+
+# DevOps and Infrastructure
+terraform = https://github.com/hashicorp/terraform/releases
+docker = https://github.com/docker/docker-ce/releases
+kubernetes = https://github.com/kubernetes/kubernetes/releases
+helm = https://github.com/helm/helm/releases
+
+# Development Tools
+vscode = https://github.com/microsoft/vscode/releases
+git = https://github.com/git/git/releases
+nodejs = https://github.com/nodejs/node/releases
+
+# Security Tools
+vault = https://github.com/hashicorp/vault/releases
+consul = https://github.com/hashicorp/consul/releases

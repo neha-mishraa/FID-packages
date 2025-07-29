@@ -1,0 +1,8 @@
+resources:
+  - name: git_repo_FID
+    type: GitRepo
+    configuration:
+      path: neha-mishraa/FID-packages
+      gitProvider: GitHub_NM
+      branches:
+        include: master

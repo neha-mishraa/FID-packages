@@ -1,0 +1,9 @@
+Alpine = https://hub.docker.com/_/alpine/tags
+Opkg = https://downloads.yoctoproject.org/releases/opkg/
+Fedora = https://hub.docker.com/_/fedora/tags
+Debian = https://hub.docker.com/_/debian
+Ubuntu = https://hub.docker.com/_/ubuntu
+Elixir = https://hub.docker.com/_/elixir/tags
+Cocoapods = https://github.com/CocoaPods/CocoaPods/releases
+Vagrant = https://releases.hashicorp.com/vagrant/
+Swift = https://hub.docker.com/_/swift

@@ -1,0 +1,18 @@
+# Mixed Configuration Example
+# Demonstrates multi-source package tracking
+
+# Docker Hub Images
+alpine = https://hub.docker.com/r/library/alpine
+nginx = https://hub.docker.com/r/library/nginx
+
+# GitHub Releases
+terraform = https://github.com/hashicorp/terraform/releases
+kubernetes = https://github.com/kubernetes/kubernetes/releases
+
+# HashiCorp Official
+vault = https://releases.hashicorp.com/vault
+consul = https://releases.hashicorp.com/consul
+
+# OPKG Repositories
+curl = https://downloads.openwrt.org/releases/packages-23.05/x86_64/packages/Packages
+wget = https://downloads.openwrt.org/releases/packages-23.05/x86_64/packages/Packages

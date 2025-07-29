@@ -1,0 +1,14 @@
+# Package Configuration File
+# Format: package_name = url
+# 
+# Examples:
+opkg = https://downloads.yoctoproject.org/releases/opkg/
+alpine = https://hub.docker.com/_/alpine
+fedora = https://hub.docker.com/_/fedora
+ubuntu = https://hub.docker.com/_/ubuntu
+node = https://github.com/nodejs/node/releases
+python = https://pypi.org/project/python/
+react = https://www.npmjs.com/package/react
+
+# You can also specify custom packages:
+# my-custom-package = https://example.com/releases/

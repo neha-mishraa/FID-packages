@@ -1,0 +1,91 @@
+pipelines:
+  - name: biweekly_check_FID
+    configuration:
+      integrations:
+        - name: GitHub_NM
+        - name: gemini_api_key
+      inputResources:
+        - name: git_repo_FID
+      environmentVariables:
+        readOnly:
+          GEMINI_API_KEY:
+            default: ${int_gemini_api_key_gemini_key}
+            allowCustom: true
+          TEAM_NAME:
+            default: "pacnroll"
+            values:
+              - "pacnroll"
+              - "al-pacino"
+              - "sha2li"
+              - "2pack"
+              - "packman"
+          GEMINI_MODEL:
+            default: "gemini-1.5-flash"
+            allowCustom: true
+    steps:
+      - name: collect_info
+        type: Bash
+        configuration: 
+          allowFailure: true
+          affinityGroup: packages_ag_fid
+        execution:
+          onStart:
+            - cp -R $res_git_repo_FID_resourcePath .
+            - ls -la
+            - ls -la ./workspace
+            - pushd git_repo_FID/packages-news-summarizer
+            - ls -la
+            - chmod +x ./run.sh
+          onExecute:
+            - echo ${GEMINI_API_KEY}
+            - echo ${GEMINI_MODEL}
+            - |
+              ./run.sh \
+              --gemini-api-key  ${GEMINI_API_KEY} \
+              --gemini-model ${GEMINI_MODEL} \
+              --team=${TEAM_NAME}
+      - name: check_for_new_client_versions
+        type: Bash
+        configuration: 
+          allowFailure: true
+          affinityGroup: packages_ag_fid
+          inputSteps:
+            - name: collect_info
+              status:
+                - success
+                - failure
+                - skipped
+                - error
+        execution:
+          onStart:
+            - cp -R $res_git_repo_FID_resourcePath .
+            - ls -la
+            - pushd git_repo_FID/crawli
+            - ls -la
+          onExecute:
+            - npm config set registry "https://registry.npmjs.org/"
+            - npm config delete //entplus.jfrog.io/artifactory/api/npm/npm-virtual/:_authToken || true
+            - npm config delete //registry.npmjs.org/:_authToken || true
+            - npm config delete //entplus.jfrog.io/artifactory/api/npm/npm-virtual/:always-auth || true
+            - npm config delete always-auth || true
+            - rm -f /root/.npmrc || true
+            - rm -f .npmrc || true
+            - rm -f package-lock.json || true
+            - rm -rf node_modules || true
+            - rm -rf /root/.npm || true
+            - npm cache clean --force
+            - npm config set registry "https://registry.npmjs.org/" --location=project
+            - npm config list
+            - echo "=== Checking for any remaining auth configs ==="
+            - npm config get registry
+            - npm config get //registry.npmjs.org/:_authToken || echo "No auth token (good)"
+            - npm run prod:setup
+            - npm run prod
+            # - export RESULT=$(npm run prod)
+            # - echo $RESULT
+            
+    
+
+
+              
+
